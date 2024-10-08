@@ -16,6 +16,7 @@
 		"@sveltejs/kit": "^2.0.0",
 		"@sveltejs/vite-plugin-svelte": "^3.0.0",
 		"@types/d3": "^7.4.3",
+		"@types/d3-drag": "^3.0.7",
 		"@types/d3-geo": "^3.1.0",
 		"@types/d3-scale": "^4.0.8",
 		"@types/eslint": "^9.6.0",
@@ -39,6 +40,7 @@
 	"type": "module",
 	"dependencies": {
 		"d3": "^7.9.0",
+		"d3-drag": "^3.0.0",
 		"d3-geo": "^3.1.1",
 		"d3-scale": "^4.0.2",
 		"topojson-client": "^3.1.0"
