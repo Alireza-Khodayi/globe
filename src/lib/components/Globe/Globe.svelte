@@ -2,9 +2,10 @@
 	// @ts-nocheck
 	import { onMount } from 'svelte';
 	import { spring } from 'svelte/motion';
+	import { draw } from 'svelte/transition';
 
 	import * as topojson from 'topojson-client';
-	import { geoOrthographic, geoPath } from 'd3-geo';
+	import { geoOrthographic, geoPath, geoCentroid } from 'd3-geo';
 	import { scaleLinear } from 'd3-scale';
 	import { max } from 'd3-array';
 	import { timer } from 'd3-timer';
@@ -15,6 +16,8 @@
 	import data from '$lib/data/countries-papulation.json';
 
 	import Glow from './Glow.svelte';
+	import Tooltip from './Tooltip.svelte';
+	import Legend from './Legend.svelte';
 
 	let countries = topojson.feature(world, world.objects.countries).features;
 	let borders = topojson.mesh(world, world.objects.countries, (a, b) => a !== b);
@@ -48,7 +51,7 @@
 	let degreesPerFrame = 0.8;
 
 	const t = timer((elapsed) => {
-		if (dragging) return;
+		if (dragging || tooltipData) return;
 		$xRotation += degreesPerFrame;
 	}, 0);
 
@@ -71,20 +74,80 @@
 				})
 		);
 	});
+
+	let tooltipData;
+
+	$: if (tooltipData) {
+		const center = geoCentroid(tooltipData);
+		$xRotation = -center[0];
+		$yRotation = -center[1];
+	}
 </script>
 
 <div
 	class="chart-container max-w-md mx-auto mt-20 cursor-grab active:cursor-grabbing"
 	bind:clientWidth={width}
 >
+	<!-- svelte-ignore a11y-no-noninteractive-tabindex -->
+	<!-- svelte-ignore a11y-no-static-element-interactions -->
+	<!-- svelte-ignore a11y-click-events-have-key-events -->
 	<svg {width} {height} class="overflow-visible" bind:this={globe}>
 		<!-- Glow -->
 		<Glow />
 		<!-- Globe -->
-		<circle cx={width / 2} cy={height / 2} r={width / 2} fill="#1c1c1c" filter="url(#glow)" />
+		<circle
+			cx={width / 2}
+			cy={height / 2}
+			r={width / 2}
+			fill="#1c1c1c"
+			filter="url(#glow)"
+			on:click={() => {
+				tooltipData = null;
+			}}
+			on:focus={() => {
+				tooltipData = null;
+			}}
+			tabindex="0"
+		/>
+		<!-- Countries -->
 		{#each countries as country}
-			<path d={path(country)} fill={colorScale(country?.population || 0)} stroke="none" />
+			<path
+				class="hover:cursor-pointer"
+				d={path(country)}
+				fill={colorScale(country?.population || 0)}
+				stroke={'none'}
+				on:click={() => {
+					tooltipData = country;
+				}}
+				on:focus={() => {
+					tooltipData = country;
+				}}
+				tabindex="0"
+			/>
 		{/each}
+		<!-- Borders -->
 		<path d={path(borders)} fill="none" stroke="black" />
+
+		<!-- Selected country border -->
+		{#if tooltipData}
+			{#key tooltipData.id}
+				<path
+					d={path(tooltipData)}
+					fill="transparent"
+					stroke="white"
+					stroke-width="2"
+					in:draw={{ duration: 1500 }}
+				/>
+			{/key}
+		{/if}
 	</svg>
+	<Tooltip data={tooltipData} />
+	<Legend />
 </div>
+
+<style>
+	circle:focus,
+	path:focus {
+		outline: none;
+	}
+</style>
