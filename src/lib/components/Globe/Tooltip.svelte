@@ -1,11 +1,8 @@
 <script lang="ts">
+	import { suffixFormat } from '$lib/utils/suffix-format';
 	import { fade } from 'svelte/transition';
 
-	import { format } from 'd3-format';
-	const suffixFormat = (d: any) => format('.2s')(d).replace('G', 'B');
-
 	export let data;
-	console.log(data);
 </script>
 
 {#if data?.country}

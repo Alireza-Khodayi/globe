@@ -11,6 +11,7 @@
 	import { timer } from 'd3-timer';
 	import { drag } from 'd3-drag';
 	import { select } from 'd3-selection';
+	import { zoom } from 'd3-zoom';
 
 	import world from '$lib/data/world-110m.json';
 	import data from '$lib/data/countries-papulation.json';
@@ -62,6 +63,7 @@
 
 	onMount(() => {
 		const element = select(globe);
+
 		element.call(
 			drag()
 				.on('drag', (event) => {
@@ -73,6 +75,18 @@
 					dragging = false;
 				})
 		);
+		// .call(
+		// 	zoom().on('zoom', (event) => {
+		// 		if (event.transform.k > 0.3) {
+		// 			projection.scale((width / 2) * event.transform.k);
+		// 			path = geoPath().projection(projection);
+		// 			globe.selectAll('path').attr('d', path);
+		// 			globe.attr('r', projection.scale());
+		// 		} else {
+		// 			event.transform.k = 0.3;
+		// 		}
+		// 	})
+		// );
 	});
 
 	let tooltipData;
@@ -84,10 +98,11 @@
 	}
 </script>
 
-<div
-	class="chart-container max-w-md mx-auto mt-20 cursor-grab active:cursor-grabbing"
-	bind:clientWidth={width}
->
+<div class="max-w-md mx-auto cursor-grab active:cursor-grabbing" bind:clientWidth={width}>
+	<h1 class="text-white text-center text-2xl font-extrabold mb-2">The world at a Glance</h1>
+	<h2 class="text-zinc-400 text-center text-lg font-extralight mb-4">
+		Population by Country, 2021
+	</h2>
 	<!-- svelte-ignore a11y-no-noninteractive-tabindex -->
 	<!-- svelte-ignore a11y-no-static-element-interactions -->
 	<!-- svelte-ignore a11y-click-events-have-key-events -->
@@ -142,7 +157,7 @@
 		{/if}
 	</svg>
 	<Tooltip data={tooltipData} />
-	<Legend />
+	<Legend {colorScale} data={tooltipData} />
 </div>
 
 <style>

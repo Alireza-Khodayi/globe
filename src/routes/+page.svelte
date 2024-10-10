@@ -4,5 +4,7 @@
 </script>
 
 {#if browser}
-	<Globe />
+	<div class="p-5">
+		<Globe />
+	</div>
 {/if}
