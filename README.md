@@ -1,38 +1,55 @@
-# create-svelte
+<h1 align="center" id="title">🌍 Globe</h1>
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
+<p align="center"><img src="https://socialify.git.ci/Alireza-Khodayi/globe/image?font=Source%20Code%20Pro&amp;language=1&amp;name=1&amp;owner=1&amp;pattern=Solid&amp;stargazers=1&amp;theme=Auto" alt="project-image"></p>
 
-## Creating a project
+<p id="description">Data visualization of world population by country (2021) using Svelte and D3</p>
 
-If you're seeing this, you've probably already done this step. Congrats!
+<h2>🚀 Project Demo</h2>
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+[https://globe.liara.run](https://globe.liara.run)
 
-# create a new project in my-app
-npm create svelte@latest my-app
+<h2>🖼️ Project Screenshots:</h2>
+
+<img src="https://raw.githubusercontent.com/Alireza-Khodayi/globe/refs/heads/main/static/SelectedScreenShot.png" alt="project-screenshot" width="400" height="400/">
+
+<img src="https://raw.githubusercontent.com/Alireza-Khodayi/globe/refs/heads/main/static/GlobeScreenShot.png" alt="project-screenshot" width="400" height="400/">
+
+<h2>🧐 Features</h2>
+
+Here're some of the project's best features:
+
+- Data Visualization
+- Interactivity
+- Accessibility
+
+<h2>🛠️ Installation Steps:</h2>
+
+<p>1. Clone repository:</p>
+
+```
+git clone https://github.com/Alireza-Khodayi/globe/
 ```
 
-## Developing
+<p>2. Install dependencies:</p>
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+```
+npm i
+```
 
-```bash
+<p>3. Run the project:</p>
+
+```
 npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
 ```
 
-## Building
+<h2>💻 Built with</h2>
 
-To create a production version of your app:
+Technologies used in the project:
 
-```bash
-npm run build
-```
+- Svelte
+- D3
+- SVG
 
-You can preview the production build with `npm run preview`.
+<h2>💖Like my work?</h2>
 
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+Please give me a star if you intrested :)
