@@ -1,55 +1,58 @@
-<h1 align="center" id="title">🌍 Globe</h1>
 
-<p align="center"><img src="https://socialify.git.ci/Alireza-Khodayi/globe/image?font=Source%20Code%20Pro&amp;language=1&amp;name=1&amp;owner=1&amp;pattern=Solid&amp;stargazers=1&amp;theme=Auto" alt="project-image"></p>
+# 🌍 Globe
 
-<p id="description">Data visualization of world population by country (2021) using Svelte and D3</p>
+The world at a Glance. Population by Country, 2021
 
-<h2>🚀 Project Demo</h2>
+Data visualization with Svelte and D3 on a nice Globe made by power of SVG
+## 🧪 Demo
 
-[https://globe.liara.run](https://globe.liara.run)
+You can visit this link for project demo: https://globe.liara.run
 
-<h2>🖼️ Project Screenshots:</h2>
 
-<img src="https://raw.githubusercontent.com/Alireza-Khodayi/globe/refs/heads/main/static/SelectedScreenShot.png" alt="project-screenshot" width="400" height="300/">
+## 🖼️ Screenshots
 
-<img src="https://raw.githubusercontent.com/Alireza-Khodayi/globe/refs/heads/main/static/GlobeScreenShot.png" alt="project-screenshot" width="400" height="300">
+![App Screenshot](https://raw.githubusercontent.com/Alireza-Khodayi/globe/refs/heads/main/static/SelectedScreenShot.png)
 
-<h2>🧐 Features</h2>
 
-Here're some of the project's best features:
+## ✨ Features
 
-- Data Visualization
-- Interactivity
-- Accessibility
+- Dragable globe on x and y axis 
+- Focus on each country (SVG path) to show tooltip
+- A legend under the globe to show data on progress bar
+- Fully Dynamic
 
-<h2>🛠️ Installation Steps:</h2>
 
-<p>1. Clone repository:</p>
+## 🚀 Installation and Run
 
-```
-git clone https://github.com/Alireza-Khodayi/globe/
-```
+To Install/visit globe project on your local machine you can do these steps:
+ - Step 1: Clone repository
+```bash
+  git clone https://github.com/Alireza-Khodayi/globe
+  ```
+  - Step 2: Move to project directory
+  ```bash
+  cd globe
+  ```
+  - Step 3: Install dependencies
+  ```bash
+  npm install
+  ```
+  - Step 4: Run the project
+  ```bash
+  npm run dev
+  ```
 
-<p>2. Install dependencies:</p>
+    
+## 🧩 Tech Stack
 
-```
-npm i
-```
+Svelte, D3, TailwindCSS, SVG
 
-<p>3. Run the project:</p>
 
-```
-npm run dev
-```
+## 💡 Feedback
 
-<h2>💻 Built with</h2>
+If you have any feedback, please reach out me at alirezakhodayi97@gmail.com
 
-Technologies used in the project:
 
-- Svelte
-- D3
-- SVG
+## ❤️ Support
 
-<h2>💖Like my work?</h2>
-
-Please give me a star if you intrested :)
+Please give a star to this repository if you enjoyed.
