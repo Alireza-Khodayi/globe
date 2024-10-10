@@ -10,9 +10,9 @@
 
 <h2>🖼️ Project Screenshots:</h2>
 
-<img src="https://raw.githubusercontent.com/Alireza-Khodayi/globe/refs/heads/main/static/SelectedScreenShot.png" alt="project-screenshot" width="300" height="200/">
+<img src="https://raw.githubusercontent.com/Alireza-Khodayi/globe/refs/heads/main/static/SelectedScreenShot.png" alt="project-screenshot" width="400" height="300/">
 
-<img src="https://raw.githubusercontent.com/Alireza-Khodayi/globe/refs/heads/main/static/GlobeScreenShot.png" alt="project-screenshot" width="300" height="200/">
+<img src="https://raw.githubusercontent.com/Alireza-Khodayi/globe/refs/heads/main/static/GlobeScreenShot.png" alt="project-screenshot" width="400" height="300">
 
 <h2>🧐 Features</h2>
 
